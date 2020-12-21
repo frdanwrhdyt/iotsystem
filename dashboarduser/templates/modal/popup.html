@@ -1,0 +1,27 @@
+{% extends "dashboardbase.html" %}
+{% block modal %}
+    {% include "snippets/js.html" %}
+    <script>
+        $(document).ready(function(){
+                $("#myModal").modal({ backdrop: 'static', keyboard: false });
+            });
+    </script>
+    
+{% endblock modal %}
+
+{% block main %}  
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body d-flex justify-content-center">
+                    <h5>Please login first!</h5>
+                    <br>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+                    <a href="{% url 'home' %}" class="btn btn-secondary">Back to Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock main %}

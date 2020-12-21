@@ -1,0 +1,26 @@
+{% load static %}
+<nav class="navbar navbar-expand-md bg-dark fixed-top" id="navbar">
+  <a class="navbar-brand text-white" id="nav"  href="#jumbotron">{{title}}</a>
+  <button class="navbar-toggler" type="button"  data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="nav ml-auto ">
+      <li class="nav-item">
+        <a class="nav-link active text-white" id="nav" href="#home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active text-white" id="nav" href="#product">Product</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active text-white" id="nav" href="#about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active text-white" id="nav" href="#support">Support</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-outline-primary text-white text-capitalize" href="/{{link}}">{{link}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,22 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    {% include "snippets/style.html" %}
+    <link rel="stylesheet" href="{% static "css/simple-sidebar.css" %}">
+    {% block modal %}
+      
+    {% endblock modal %}
+</head>
+<body>
+    {% block main %}
+      
+    {% endblock main %}
+    {% block script %}
+      
+    {% endblock script %}
+    {% include "snippets/js.html" %}
+</body>
+</html>

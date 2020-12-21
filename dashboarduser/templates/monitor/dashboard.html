@@ -1,0 +1,54 @@
+{% extends "dashboardbase.html" %}
+{% block main %}
+
+<style>
+    .btn{
+      position: fixed;
+      bottom: 50;
+
+    }
+  </style>
+  <div class="d-flex " id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-dark border-right text-light" id="sidebar-wrapper">
+      <div class="sidebar-heading font-weight-bold">Hidden Camera</div>
+      <div class="list-group list-group-flush ">
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Camera 1</a>
+        
+      </div>
+      <div class="d-flex justify-content-center">
+        <a class="btn btn-outline-primary text-white text-capitalize" href="{% url link %}">{{link}}</a>
+      </div>
+    </div>
+    <div class="container">
+      <canvas id="canvas" width="640" height="480"></canvas>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var img = new Image()
+
+    var socket = new WebSocket ("ws://192.168.0.102:8000/dashboard/imgData/");
+    socket.onopen = function(e){
+      console.log("initSocketIO");
+    };
+    
+    socket.onmessage = function(e){
+      let res = JSON.parse(e.data);
+      
+      img.src = "data:image/jpg;base64," + res.img;
+      
+      var width = img.naturalWidth;
+      var height = img.naturalHeight;
+      
+      canvas.height = 480;
+      canvas.width = 640;
+      
+      console.log(res.img)
+      ctx.drawImage(img, 0, 0);
+    }    
+  </script>
+  {% endblock main %}
+  {% block script %}
+{% endblock script %}
